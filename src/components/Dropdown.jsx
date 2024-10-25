@@ -1,27 +1,27 @@
-const { useState } = require("react");
+const { useState } = require('react');
 
+const Dropdown = ({ options, placeholder, onSelect }) => {
+  const [isOpen, setIsOpen] = useState(false);
 
-const Dropdown = ({ options, placeHolder }) => {
-    const [selected, setSelected] = useState(placeHolder);
-    const [isOpen, setIsOpen] = useState(false);
+  const handleSelect = (option) => {
+    onSelect(option);
+    setIsOpen(false);
+  };
 
-    const handleSelect = (option) => {
-        setSelected(option);
-        setIsOpen(false);
-    }
-
-    return (
-        <div>
-            <button onClick={() => setIsOpen(!isOpen)}>{selected}</button>
-            {isOpen && (
-                <ul>
-                    {options.map(option => (
-                        <li key={option} onClick={() => handleSelect(option)}>
-                            {option}
-                        </li>
-                    ))}
-                </ul>
-            )}
-        </div>
-    )
+  return (
+    <div>
+      <button onClick={() => setIsOpen(!isOpen)}>{placeholder}</button>
+      {isOpen && (
+        <ul>
+          {options.map((option) => (
+            <li key={option} onClick={() => handleSelect(option)}>
+              {option}
+            </li>
+          ))}
+        </ul>
+      )}
+    </div>
+  );
 };
+
+export default Dropdown; 

@@ -1,23 +1,24 @@
-import logo from './logo.svg';
+import { useState } from 'react';
 import './App.css';
+import Dropdown from './components/Dropdown';
 
 function App() {
+  const dropDownOptions = ['Option1', 'Option2', 'Option3'];
+  const [selectedOption, setSelectedOption] = useState('Select an option');
+
+  const handleSelect = (option) => {
+    setSelectedOption(option);
+  };
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <h1>Simple UI Component Example</h1>
+      <Dropdown
+        options={dropDownOptions}
+        placeHolder={selectedOption}
+        onSelect={handleSelect}
+      />
+      <p>Selected Option: {selectedOption}</p>
     </div>
   );
 }
