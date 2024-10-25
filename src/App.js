@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import './App.css';
 import Dropdown from './components/Dropdown';
+import LoginForm from './components/Form';
 
 function App() {
   const dropDownOptions = ['Option1', 'Option2', 'Option3'];
@@ -19,6 +20,7 @@ function App() {
         onSelect={handleSelect}
       />
       <p>Selected Option: {selectedOption}</p>
+      <LoginForm />
     </div>
   );
 }
