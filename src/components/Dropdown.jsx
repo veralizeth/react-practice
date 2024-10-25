@@ -10,7 +10,14 @@ const Dropdown = ({ options, placeholder, onSelect }) => {
 
   return (
     <div>
-      <button onClick={() => setIsOpen(!isOpen)}>{placeholder}</button>
+      <button
+        onClick={() => setIsOpen(!isOpen)}
+        style={{
+          padding: '8px 16px'
+        }}
+      >
+        {placeholder}
+      </button>
       {isOpen && (
         <ul>
           {options.map((option) => (
@@ -24,4 +31,4 @@ const Dropdown = ({ options, placeholder, onSelect }) => {
   );
 };
 
-export default Dropdown; 
+export default Dropdown;
